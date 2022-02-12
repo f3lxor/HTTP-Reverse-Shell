@@ -7,7 +7,7 @@ import jprq.main
 import threading
 import sys
 def tunnel_out(args):
-    jprq.main.http("8080 -s {args}".split(' '))
+    jprq.main.http("8080 -s test".split(' '))
 tun_thread = threading.Thread(target=tunnel_out, name="tunnel", args=sys.argv[0])
 HTTP_STATUS_OK = 200
 
