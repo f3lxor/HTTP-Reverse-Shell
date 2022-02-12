@@ -1,6 +1,6 @@
 #Server ----> runs on the attacker's machine
-from jp
 from http.server import BaseHTTPRequestHandler, HTTPServer
+
 from urllib.parse import parse_qs
 import os,cgi
 import jprq.main
