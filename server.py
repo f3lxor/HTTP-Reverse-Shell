@@ -6,9 +6,10 @@ import os,cgi
 import jprq.main
 import threading
 import sys
+import subprocess
 def tunnel_out():
-    jprq.main.http("8080 -s test".split(' '))
-tun_thread = threading.Thread(target=tunnel_out, name="tunnel", args=None])
+    subprocess.Popen(["jprq", "http"," 8888"])
+tun_thread = threading.Thread(target=tunnel_out, name="tunnel")
 HTTP_STATUS_OK = 200
 
 ATTACKER_IP = '0.0.0.0'
